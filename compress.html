@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress PDF Online Free — Free PDF Tool</title>
+<meta name="description" content="Reduce PDF file size for free, right in your browser. No uploads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    :root{
+      --paper:#F0EBDD;
+      --paper-dark:#E4DCC6;
+      --ink:#20242B;
+      --ink-soft:#565C6B;
+      --folder:#2B4C7E;
+      --folder-dark:#1D3557;
+      --stamp:#C1432E;
+      --stamp-dark:#9A3323;
+      --line:#C9BFA0;
+      --white:#FFFDF7;
+      --success:#3F7A4F;
+      --radius:4px;
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      background:var(--paper);
+      background-image:
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px);
+      color:var(--ink);
+      font-family:'IBM Plex Sans', system-ui, sans-serif;
+      line-height:1.5;
+    }
+    h1,h2,h3{
+      font-family:'Archivo', 'IBM Plex Sans', sans-serif;
+      font-weight:800;
+      letter-spacing:-0.01em;
+      margin:0 0 .4em;
+    }
+    a{color:var(--folder);}
+    .mono{font-family:'IBM Plex Mono', monospace;}
+
+    /* ---- Folder-tab header ---- */
+    header.site{
+      background:var(--folder-dark);
+      padding:0 20px;
+    }
+    .header-inner{
+      max-width:1080px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 0 0;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .brand{
+      color:var(--white);
+      font-family:'Archivo',sans-serif;font-weight:800;font-size:1.3rem;
+      text-decoration:none;letter-spacing:-0.02em;
+      display:flex;align-items:center;gap:8px;
+    }
+    .brand .dot{width:10px;height:10px;background:var(--stamp);border-radius:50%;display:inline-block;}
+    nav.tabs{display:flex;gap:4px;max-width:1080px;margin:10px auto 0;padding:0 20px;}
+    nav.tabs a{
+      display:inline-block;
+      color:var(--white);
+      text-decoration:none;
+      font-size:.92rem;
+      font-weight:600;
+      padding:10px 18px 9px;
+      background:rgba(255,255,255,0.07);
+      border-radius:var(--radius) var(--radius) 0 0;
+      border:1px solid transparent;
+    }
+    nav.tabs a.active{
+      background:var(--paper);
+      color:var(--ink);
+      position:relative;
+      top:1px;
+    }
+    nav.tabs a:hover:not(.active){background:rgba(255,255,255,0.15);}
+
+    main{max-width:1080px;margin:0 auto;padding:36px 20px 60px;}
+
+    /* ---- Ad slots ---- */
+    .ad-slot{
+      background:var(--white);
+      border:1px dashed var(--line);
+      color:var(--ink-soft);
+      font-size:.75rem;
+      text-align:center;
+      display:flex;align-items:center;justify-content:center;
+      margin:28px auto;
+      border-radius:var(--radius);
+    }
+    .ad-slot.leaderboard{max-width:728px;min-height:90px;}
+    .ad-slot.rectangle{max-width:300px;min-height:250px;}
+    .ad-slot.inline{min-height:100px;}
+
+    /* ---- Folder document card ---- */
+    .doc-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 1px 0 var(--line), 0 6px 16px rgba(32,36,43,0.06);
+      position:relative;
+      padding:32px;
+      margin-bottom:28px;
+    }
+    .doc-card::before{
+      content:'';
+      position:absolute;top:-14px;left:28px;
+      width:64px;height:14px;
+      background:var(--paper-dark);
+      border:1px solid var(--line);
+      border-bottom:none;
+      border-radius:4px 4px 0 0;
+    }
+    .stamp{
+      display:inline-block;
+      border:2px solid var(--stamp);
+      color:var(--stamp);
+      font-family:'Archivo',sans-serif;
+      font-weight:800;
+      font-size:.72rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:4px 10px;
+      border-radius:3px;
+      transform:rotate(-3deg);
+      margin-bottom:14px;
+    }
+
+    /* ---- Hero ---- */
+    .hero{padding:8px 0 12px;}
+    .hero h1{font-size:2.3rem;max-width:680px;}
+    .hero p{color:var(--ink-soft);max-width:560px;font-size:1.05rem;}
+
+    /* ---- Tool grid on home ---- */
+    .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:20px;}
+    .tool-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      text-decoration:none;
+      color:var(--ink);
+      display:block;
+      transition:transform .15s ease, box-shadow .15s ease;
+      box-shadow:0 1px 0 var(--line);
+    }
+    .tool-card:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(32,36,43,0.1);}
+    .tool-card .tag{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:.7rem;color:var(--stamp);
+      text-transform:uppercase;letter-spacing:.06em;
+    }
+    .tool-card h3{font-size:1.15rem;margin:.3em 0 .3em;}
+    .tool-card p{color:var(--ink-soft);font-size:.9rem;margin:0;}
+
+    /* ---- Dropzone ---- */
+    .dropzone{
+      border:2px dashed var(--folder);
+      background:rgba(43,76,126,0.04);
+      border-radius:var(--radius);
+      padding:34px 20px;
+      text-align:center;
+      cursor:pointer;
+      transition:background .15s ease;
+    }
+    .dropzone.drag{background:rgba(43,76,126,0.1);}
+    .dropzone p{margin:.4em 0 0;color:var(--ink-soft);font-size:.9rem;}
+    .dropzone .btn{margin-top:10px;}
+
+    /* ---- File list ---- */
+    .file-list{list-style:none;margin:18px 0 0;padding:0;}
+    .file-list li{
+      display:flex;align-items:center;gap:10px;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:10px 12px;margin-bottom:8px;
+      font-size:.88rem;
+    }
+    .file-list li .name{flex:1;font-family:'IBM Plex Mono',monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .file-list li .size{color:var(--ink-soft);font-size:.78rem;}
+    .file-list li button{
+      border:none;background:none;color:var(--stamp);cursor:pointer;font-weight:700;font-size:1rem;line-height:1;
+    }
+    .file-list li .order-btn{color:var(--folder);background:var(--white);border:1px solid var(--line);border-radius:3px;width:22px;height:22px;font-size:.8rem;cursor:pointer;}
+
+    /* ---- Buttons ---- */
+    .btn{
+      display:inline-block;
+      background:var(--stamp);
+      color:var(--white);
+      border:none;
+      font-family:'Archivo',sans-serif;
+      font-weight:700;
+      font-size:.95rem;
+      padding:13px 26px;
+      border-radius:var(--radius);
+      cursor:pointer;
+      text-decoration:none;
+    }
+    .btn:hover{background:var(--stamp-dark);}
+    .btn:disabled{background:#B8B2A0;cursor:not-allowed;}
+    .btn.secondary{background:var(--folder);}
+    .btn.secondary:hover{background:var(--folder-dark);}
+    .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);}
+
+    /* ---- Controls ---- */
+    .field{margin:18px 0;}
+    .field label{display:block;font-weight:600;font-size:.88rem;margin-bottom:6px;}
+    .field input[type=text], .field input[type=number]{
+      width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);
+      font-family:'IBM Plex Mono',monospace;background:var(--white);
+    }
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+    .status{margin-top:16px;font-size:.9rem;}
+    .status.ok{color:var(--success);font-weight:600;}
+    .status.err{color:var(--stamp);font-weight:600;}
+    .progress{
+      height:6px;background:var(--paper-dark);border-radius:3px;overflow:hidden;margin-top:14px;display:none;
+    }
+    .progress .bar{height:100%;width:0%;background:var(--folder);transition:width .2s ease;}
+
+    .divider{
+      border:none;border-top:1px dashed var(--line);margin:26px 0;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:40px;
+      padding:24px 20px 40px;
+      text-align:center;
+      color:var(--ink-soft);
+      font-size:.82rem;
+    }
+    footer a{color:var(--ink-soft);}
+
+    .privacy-note{
+      display:flex;gap:10px;align-items:flex-start;
+      background:rgba(63,122,79,0.08);
+      border:1px solid rgba(63,122,79,0.3);
+      color:var(--success);
+      padding:12px 14px;border-radius:var(--radius);
+      font-size:.85rem;margin-top:18px;
+    }
+
+    @media(max-width:600px){
+      .hero h1{font-size:1.7rem;}
+      .doc-card{padding:22px 18px;}
+      nav.tabs a{padding:9px 12px;font-size:.85rem;}
+    }
+</style>
+</head>
+<body>
+<header class="site">
+    <div class="header-inner">
+      <a href="index.html" class="brand"><span class="dot"></span>Free PDF Tool</a>
+    </div>
+    <nav class="tabs">
+      <a href="index.html" class="">Home</a>
+      <a href="merge.html" class="">Merge PDF</a>
+      <a href="split.html" class="">Split PDF</a>
+      <a href="compress.html" class="active">Compress PDF</a>
+    </nav>
+  </header>
+
+  <div class="ad-slot leaderboard" style="width:100%;">Ad space — 728×90 leaderboard</div>
+  <main>
+    <section class="hero">
+      <span class="stamp">Tool 03</span>
+      <h1 style="font-size:1.8rem;">Compress PDF</h1>
+      <p>Shrink a PDF for email or WhatsApp. Works best on scanned or image-heavy PDFs.</p>
+    </section>
+
+    <div class="doc-card">
+      <div id="dropzone" class="dropzone">
+        <strong>Drop a PDF file here</strong>
+        <p>or click to browse — one file at a time</p>
+        <input type="file" id="fileInput" accept="application/pdf" style="display:none;">
+      </div>
+
+      <ul class="file-list" id="fileList"></ul>
+
+      <div id="options" style="display:none;">
+        <hr class="divider">
+        <div class="field">
+          <label>Compression level</label>
+          <div class="row">
+            <label class="row" style="gap:6px;font-weight:400;"><input type="radio" name="level" value="light"> Light (best quality)</label>
+            <label class="row" style="gap:6px;font-weight:400;"><input type="radio" name="level" value="recommended" checked> Recommended</label>
+            <label class="row" style="gap:6px;font-weight:400;"><input type="radio" name="level" value="strong"> Strong (smallest size)</label>
+          </div>
+        </div>
+        <button class="btn" id="compressBtn">Compress PDF</button>
+        <span id="originalSize" class="mono" style="color:var(--ink-soft);font-size:.85rem;margin-left:12px;"></span>
+      </div>
+
+      <div class="progress" id="progress"><div class="bar" id="progressBar"></div></div>
+      <div class="status" id="status"></div>
+
+      <div class="privacy-note">🔒 Compression happens locally in your browser. Nothing is uploaded.</div>
+    </div>
+
+    <div class="ad-slot inline" style="width:100%;">Ad space — responsive in-content</div>
+
+    <div class="doc-card">
+      <h2 style="font-size:1.1rem;">How this works</h2>
+      <p style="color:var(--ink-soft);">Each page is redrawn at a lower image quality, which shrinks scanned documents and image-heavy PDFs significantly. Text-only PDFs are already small and may not shrink much further.</p>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const fileListEl = document.getElementById('fileList');
+    const optionsEl = document.getElementById('options');
+    const compressBtn = document.getElementById('compressBtn');
+    const originalSizeEl = document.getElementById('originalSize');
+    const statusEl = document.getElementById('status');
+    const progress = document.getElementById('progress');
+    const progressBar = document.getElementById('progressBar');
+
+    let currentFile = null;
+
+    dropzone.addEventListener('click', () => fileInput.click());
+    dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
+    dropzone.addEventListener('drop', e => { e.preventDefault(); dropzone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+
+    function formatSize(bytes){
+      if (bytes < 1024*1024) return (bytes/1024).toFixed(0) + ' KB';
+      return (bytes/(1024*1024)).toFixed(1) + ' MB';
+    }
+
+    function handleFile(file){
+      if (!file || file.type !== 'application/pdf') return;
+      currentFile = file;
+      fileListEl.innerHTML = `<li><span class="name">${file.name}</span><span class="size">${formatSize(file.size)}</span></li>`;
+      originalSizeEl.textContent = `Original: ${formatSize(file.size)}`;
+      optionsEl.style.display = 'block';
+      statusEl.textContent = ''; statusEl.className = 'status';
+    }
+
+    const LEVELS = {
+      light:       { scale: 1.5, quality: 0.85 },
+      recommended: { scale: 1.15, quality: 0.65 },
+      strong:      { scale: 0.85, quality: 0.42 },
+    };
+
+    compressBtn.addEventListener('click', async () => {
+      if (!currentFile) return;
+      const level = document.querySelector('input[name=level]:checked').value;
+      const { scale, quality } = LEVELS[level];
+
+      compressBtn.disabled = true;
+      progress.style.display = 'block';
+      statusEl.textContent = '';
+
+      try {
+        const arrayBuffer = await currentFile.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        const { PDFDocument } = PDFLib;
+        const outDoc = await PDFDocument.create();
+
+        for (let i = 1; i <= pdf.numPages; i++){
+          const page = await pdf.getPage(i);
+          const viewport = page.getViewport({ scale });
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const ctx = canvas.getContext('2d');
+          await page.render({ canvasContext: ctx, viewport }).promise;
+
+          const jpegDataUrl = canvas.toDataURL('image/jpeg', quality);
+          const jpegBytes = await (await fetch(jpegDataUrl)).arrayBuffer();
+          const jpegImage = await outDoc.embedJpg(jpegBytes);
+
+          const newPage = outDoc.addPage([viewport.width, viewport.height]);
+          newPage.drawImage(jpegImage, { x: 0, y: 0, width: viewport.width, height: viewport.height });
+
+          progressBar.style.width = `${Math.round((i/pdf.numPages)*100)}%`;
+        }
+
+        const outBytes = await outDoc.save();
+        downloadBlob(outBytes, currentFile.name.replace(/\.pdf$/i,'') + '-compressed.pdf');
+
+        const newSize = outBytes.byteLength;
+        const savedPct = Math.max(0, Math.round((1 - newSize / currentFile.size) * 100));
+        statusEl.textContent = `✓ Done — ${formatSize(newSize)} (${savedPct}% smaller). Download started.`;
+        statusEl.className = 'status ok';
+      } catch (err){
+        console.error(err);
+        statusEl.textContent = '✕ Something went wrong. Make sure the file is a valid PDF.';
+        statusEl.className = 'status err';
+      } finally {
+        compressBtn.disabled = false;
+        setTimeout(()=>{ progress.style.display='none'; progressBar.style.width='0%'; }, 800);
+      }
+    });
+
+    function downloadBlob(bytes, filename){
+      const blob = new Blob([bytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = filename;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  <div class="ad-slot leaderboard" style="width:100%;">Ad space — 728×90 leaderboard</div>
+
+  <footer>
+    <p>Free PDF Tool — Merge, split and compress PDFs entirely in your browser. No uploads, no signup.</p>
+    <p>&copy; <span id="year"></span> Free PDF Tool</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
